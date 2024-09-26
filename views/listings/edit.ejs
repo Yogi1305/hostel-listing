@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Listing</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .form-container h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="number"],
+        .form-container input[type="url"] {
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .form-container input:focus {
+            outline: none;
+            border-color: #495057;
+            box-shadow: 0 0 4px rgba(73, 80, 87, 0.5);
+        }
+
+        .form-container input::placeholder {
+            color: #6c757d;
+        }
+
+        .form-container button {
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .form-container a {
+            text-align: center;
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        .form-container a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Edit Listing</h1>
+        <form method="post" action="/listings/edit/<%= list._id %>?_method=PUT">
+            <input name="title" type="text" value="<%= list.title %>" required>
+            <input name="description" type="text" value="<%= list.description %>" required>
+            <input name="location" type="text" value="<%= list.location %>" required>
+            <input name="price" type="number" value="<%= list.price %>" required>
+            <input name="country" type="text" value="<%= list.country %>" required>
+            <input name="img" type="url" value="<%= list.img %>" required>
+            <button type="submit">Update Listing</button>
+        </form>
+        <a href="/listings">Cancel</a>
+    </div>
+</body>
+</html>

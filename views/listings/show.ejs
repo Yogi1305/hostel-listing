@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= list.title %></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        h2 {
+            color: #007BFF;
+            text-align: center;
+        }
+        p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+        }
+        strong {
+            color: #333;
+        }
+        .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #e63946;
+        }
+        .location {
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Listing Details</h1>
+        <h2><%= list.title %></h2>
+        <p><strong>Description:</strong> <%= list.description %></p>
+        <p class="price"><strong>Price:</strong> $<%= list.price %></p>
+        <p class="location"><strong>Location:</strong> <%= list.location %>, <%= list.country %></p>
+        <a href="/listings/<%=list._id %>/edit">edit</a>
+        
+    </div>
+</body>
+</html>
